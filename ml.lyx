@@ -1,0 +1,1852 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\date{}
+\author{Weslley Matheus}
+\usepackage{listings,color,xcolor}
+
+\lstdefinestyle{batch-file}{
+    backgroundcolor={\color{gray!10}},
+    frame=single,
+    framerule=1pt,
+    rulecolor={\color{gray!50}},
+    breaklines=true,
+	breakindent=0pt,
+    basicstyle={\fontfamily{pcr}\selectfont\mdseries\footnotesize},
+    commentstyle={\color{green!60!black}},
+    morecomment={[l]{::}}
+}
+
+\lstdefinestyle{python-file}{
+    language=Python,
+    backgroundcolor={\color{gray!10}},
+    frame=single,  
+    framerule=1pt,  
+    rulecolor={\color{gray!50}},  
+    breaklines=true,  
+    breakindent=0pt,  
+    basicstyle={\fontfamily{pcr}\selectfont\mdseries\footnotesize},  % Font
+    commentstyle={\color{green!40!black}},  % Comment
+    keywordstyle={\color{blue!60!white}\bfseries},  % Keyword
+    stringstyle={\color{orange!70!black}\bfseries},  % String
+    identifierstyle=\color{black},  % Variable
+    emph={True, False, None, break, class, continue, def, del, if, pass,
+	open, with, while, assert, return, in, is, not, or, lambda, elif, else},
+    emphstyle={\color{magenta!80!black}\bfseries},  % True, False, None
+	morekeywords={from, import, global}
+}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification false
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth -2
+\tocdepth 1
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\series bold
+\size giant
+\color black
+Machine Learning Notes
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Hands on Machine Learning
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Machine Learning project with Python
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Full Code:
+ Machine Learning project with Python
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/code/housing_data.py"
+lstparams "style={python-file},caption={Housing Project: Linear Regression of the median house value prices. Computes prediction values for the median house value prices based on the label column.}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Machine Learning Project:
+ Food Dataset from the U.S Department of Agriculture (USDA)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "C:/Users/Wes/Desktop/machine_learning_projects/food_project/code/food_data.py"
+lstparams "style={python-file},caption={Food Dataset Project from the USDA: Linear Regression on the Protein Column. The code predicts protein values for each food item based on the label column.}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Formulas for performance measure
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \space{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Mean
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+m=\frac{1}{n}\sum_{i=1}^{n}v_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Variance
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color black
+\begin_inset Formula 
+\[
+V=\frac{1}{n}\sum_{i=1}^{n}(v_{i}-m)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Deviation from the mean:
+ 
+\begin_inset Formula ${\color{black}v_{i}-mean}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \space{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Standard Deviation
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color black
+\begin_inset Formula $SD=\sqrt{V}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Root Mean Square Error
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color black
+\begin_inset Formula 
+\[
+RMSE(\boldsymbol{X},h)=\sqrt{\frac{1}{m}\sum_{i=1}^{m}\left(h(x^{(i)})-y^{(i)}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+RMSE({\color{black}\boldsymbol{Dataset}},MLAlgorithm)=\sqrt{\frac{1}{rows}\sum_{i=1}^{rows}\left(MLAlgorithm(predicted\:value^{(i)})-label\:value^{(i)}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Euclidean distance:
+ straight line 
+\color black
+
+\begin_inset Formula $d=\sqrt{\varDelta x^{2}+\varDelta y^{2}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+The ML Algorithm takes into consideration all the column values of the dataset to form a column of predicted values.
+\end_layout
+
+\begin_layout Itemize
+The RMSE measures the standard deviation of the predicted values from the label values.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \space{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Mean Absolute Error
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+MAE(\boldsymbol{X},h)=\frac{1}{m}\sum_{i=1}^{m}\mid h(x^{(i)})-y^{(i)}\mid
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+MAE(Dataset,MLAlgorithm)=\frac{1}{rows}\sum_{i=1}^{rows}\mid MLAlgorithm(predicted\:value^{(i)})-label\:value^{(i)}\mid
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Manhattan distance:
+ grid 
+\color black
+
+\begin_inset Formula $d=\mid\varDelta x\mid+\mid\varDelta y\mid$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Both the RMSE and the MAE are ways to measure the distance between two vectors:
+ the column of predicted values from the column of label values.
+ 
+\end_layout
+
+\begin_layout Itemize
+The mean absolute error is preferred when the data has many outliers.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \space{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size large
+Difference between RMSE and Standard Deviation:
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color black
+\begin_inset Formula 
+\[
+RMSE=\sqrt{\frac{1}{n}\sum_{i=1}^{n}\left(y_{predicted}^{(i)}-y_{label}^{(i)}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color black
+\begin_inset Formula 
+\[
+STD=\sqrt{\frac{1}{n}\sum_{i=1}^{n}\left(y_{predicted}^{(i)}-mean\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+RMSE (Root Mean Squared Error) measures the average magnitude (value) of the differences (errors) between the predicted values and the true values (labels).
+ In other words,
+ it’s the average "distance" between the predicted values and the label values.
+ It is the deviation from the label.
+\end_layout
+
+\begin_layout Itemize
+Standard Deviation measures the average distance of the differences between the predicted values from their own mean.
+ It measures how spread out the values (in a dataset) are from the mean value.
+ When applied to predictions,
+ it measures how spread out the predicted values are from their own mean.
+ It is the deviation from the mean.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+i:
+ Instance (Row or Data-points)
+\end_layout
+
+\begin_layout Itemize
+m:
+ Number of instances (Number of rows)
+\end_layout
+
+\begin_layout Itemize
+h:
+ Function that predicts the desired output value (Machine Learning Algorithms:
+ Linear Regression,
+ Decision Tree,
+ Random Forest,
+ ...) 
+\end_layout
+
+\begin_layout Itemize
+
+\color black
+\begin_inset Formula $h(x^{(i)})-y^{(i)}$
+\end_inset
+
+
+\color inherit
+:
+ prediction error of the 
+\color black
+
+\begin_inset Formula $i^{th}$
+\end_inset
+
+instance.
+ ( row i:
+ ML_Algorithm(Value from the Prediction Column) - Value from the Label Column )
+\end_layout
+
+\begin_layout Itemize
+y:
+ Value of the Label Column from the row i (Column Label with the Label Values)
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color black
+\begin_inset Formula $y^{(i)}=(median\:house\:value)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+x
+\series default
+:
+ Vector with the column values of the row i (Columns of the Dataset with the Column Values)
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color black
+\begin_inset Formula $x^{(i)}=\begin{pmatrix}longitude\\
+latitude\\
+population\\
+median\:income
+\end{pmatrix}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color black
+\begin_inset Formula $(x^{(i)})^{T}=\begin{pmatrix}longitude & latitude & population & median\:income\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+X
+\series default
+:
+ Matrix of the transposed column vectors (Dataset:
+ Columns + Column Label)
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\color black
+\begin_inset Formula $X=\begin{pmatrix}(x^{(1)})^{T} & (y^{(1)})^{T}\\
+(x^{(2)})^{T} & (y^{(2)})^{T}\\
+(x^{(3)})^{T} & (y^{(3)})^{T}\\
+\vdots & \vdots\\
+(x^{(n)})^{T} & (y^{(n)})^{T}
+\end{pmatrix}=\begin{pmatrix}x_{1}^{(1)} & x_{2}^{(1)} & x_{3}^{(1)} & x_{4}^{(1)} & y^{(1)}\\
+\vdots & \vdots & \vdots & \vdots & \vdots
+\end{pmatrix}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color black
+\begin_inset Formula $x_{1}^{(1)}=$
+\end_inset
+
+ value of the column 1 from the row 1
+\end_layout
+
+\begin_layout Itemize
+
+\color black
+\begin_inset Formula $y^{(1)}=$
+\end_inset
+
+ value of the column label from the row 1
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Workspace
+\end_layout
+
+\begin_layout Itemize
+Python
+\end_layout
+
+\begin_layout Itemize
+Python modules:
+ NumPy,
+ Pandas,
+ Matplotlib,
+ and Scikit-Learn.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/workspace.cmd"
+lstparams "style={batch-file},caption={Install python modules and creates the virtual environment}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Download the Data
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/ml_project_with_python/data_download.py"
+lstparams "style={python-file},caption={Download and load the dataset.}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \space{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Histogram:
+ Graph of Rows / Data Points vs Columns
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/ml_project_with_python/histogram.py"
+lstparams "style={python-file},caption={Histogram for the full dataset, random dataset and stratified dataset.}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename machine_learning_projects/img/housing_img/Histogram_housing.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename machine_learning_projects/img/housing_img/Histogram_median_house_value.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename machine_learning_projects/img/housing_img/Histogram_median_income.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Y
+\series default
+:
+ Number of rows or data-points (districts of houses).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+X
+\series default
+:
+ Columns or categories / attributes (median_income,
+ median_house_value...).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Bins
+\series default
+:
+ Number of ranges of column values.
+ x bins = x bars in the graph.
+ 1 bin = 1 range of column values = 
+\begin_inset Formula ${\color{black}\Delta x}$
+\end_inset
+
+ of 1 bar.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Bar
+\series default
+:
+ frequency / number of rows or data-points (
+\begin_inset Formula ${\color{black}\Delta y}$
+\end_inset
+
+) inside 1 (bin) range of column values (
+\begin_inset Formula ${\color{black}\Delta x}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Histogram for Median House Values
+\series default
+:
+ More than 1000 districts (1 district = multiple houses with singular house prices) have median house values between $475,800 and $500,000.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Histogram for Median Income
+\series default
+:
+ More than 1000 districts (1 district = multiple houses with singular incomes) have a median income value in the range $55,700 to $63,000.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Analysis of the Median Income vs Districts and Comparison Table:
+ Dataset and Test Datasets (Random vs Stratified)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/ml_project_with_python/comparison_table_analysis.py"
+lstparams "style={python-file},caption={Comparison Table}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+Error(\%)=(\frac{Test\:Proportion}{Dataset\:Proportion}-1)\times100
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Rows = data-points.
+ Columns = attributes or categories.
+\end_layout
+
+\begin_layout Itemize
+Strata:
+ It refers to the ranges of values from the columns of the dataset.
+\end_layout
+
+\begin_layout Itemize
+Dataset-portion or Bar:
+ X % or number of rows are inside the range of values A-B from one column.
+\end_layout
+
+\begin_layout Itemize
+Dataset:
+ The sum of all rows or data points.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Stratification of a Dataset
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/ml_project_with_python/stratification.py"
+lstparams "style={python-file},caption={Data Stratification}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+You create a smaller dataset with the same proportions of the original dataset regarding a category.
+\end_layout
+
+\begin_layout Itemize
+The stratification process starts by creating a column 
+\begin_inset Quotes eld
+\end_inset
+
+c-category" based on the values of a column 
+\begin_inset Quotes eld
+\end_inset
+
+c
+\begin_inset Quotes erd
+\end_inset
+
+ inside the original dataset.
+\end_layout
+
+\begin_layout Itemize
+The column 
+\begin_inset Quotes eld
+\end_inset
+
+c-category
+\begin_inset Quotes erd
+\end_inset
+
+ holds individual values based on specific ranges (strata) of values of column 
+\begin_inset Quotes eld
+\end_inset
+
+c
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Finally,
+ based on the frequency / proportion of the values of column "c-category",
+ you add the rows from the Dataset into the Test Dataset.
+\end_layout
+
+\begin_layout Itemize
+If the column 
+\begin_inset Quotes eld
+\end_inset
+
+c-category
+\begin_inset Quotes erd
+\end_inset
+
+ has a value 
+\begin_inset Quotes eld
+\end_inset
+
+x
+\begin_inset Quotes erd
+\end_inset
+
+ with frequency 10% corresponding to the range of values (a-b) in column 
+\begin_inset Quotes eld
+\end_inset
+
+c
+\begin_inset Quotes erd
+\end_inset
+
+,
+ the algorithm will keep adding rows from the Dataset with values within the range (a-b) of column 
+\begin_inset Quotes eld
+\end_inset
+
+c
+\begin_inset Quotes erd
+\end_inset
+
+ until they make up for 10% of the size of the Test Dataset.
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \space{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Note:
+
+\series default
+ A stratified test dataset tends to perform better overall because it ensures the test set proportions closely match the full dataset’s proportions.
+ Smaller datasets or smaller strata can lead to high variability in estimates for groups and produce unstable results.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Example:
+\end_layout
+
+\begin_layout Standard
+Let’s say in the original dataset,
+ you have 1,000 rows,
+ and the income-category values,
+ based on the values of the median_income column,
+ distribution is like this:
+\end_layout
+
+\begin_layout Standard
+income-category = 1.0:
+ 100 rows (10% of the dataset) - median_income:
+ 45,000 - 60,000
+\end_layout
+
+\begin_layout Standard
+income-category = 2.0:
+ 300 rows (30% of the dataset) - median_income:
+ 60,000 - 80,000
+\end_layout
+
+\begin_layout Standard
+income-category = 3.0:
+ 400 rows (40% of the dataset) - median_income:
+ 80,000 - 100,000
+\end_layout
+
+\begin_layout Standard
+income-category = 4.0:
+ 100 rows (10% of the dataset) - median_income:
+ 100,000 - 150,000
+\end_layout
+
+\begin_layout Standard
+income-category = 5.0:
+ 100 rows (10% of the dataset) - median_income:
+ 150,000 - 200,000
+\end_layout
+
+\begin_layout Standard
+Now,
+ when you perform the stratified split:
+\end_layout
+
+\begin_layout Standard
+80% of the rows will go into the training set,
+ and 20% will go into the test set (since test size = 0.2).
+\end_layout
+
+\begin_layout Standard
+The algorithm will ensure that 40% of both the training and test sets will come from the income-category = 3.0 category (because 40% of the original dataset is in that category).
+\end_layout
+
+\begin_layout Standard
+So,
+ for the test set:
+\end_layout
+
+\begin_layout Standard
+If 20% of the data goes to the test set,
+ 40% of the test set will be from income-category = 3.0,
+ and the remaining percentages will be distributed based on the original proportions.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Data Visualization:
+ Graph utilizing the values of 4 Columns
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/ml_project_with_python/data_visualization.py"
+lstparams "style={python-file},caption={Data Visualization}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+s:
+
+\series default
+ Controls the size of the data points.
+ 
+\family typewriter
+s = housing[
+\begin_inset Quotes eld
+\end_inset
+
+population
+\begin_inset Quotes erd
+\end_inset
+
+]/100
+\family default
+ means that the size of each point is proportional to the values of the 
+\begin_inset Quotes eld
+\end_inset
+
+population
+\begin_inset Quotes erd
+\end_inset
+
+ column divided by 100.
+ Districts (data points) with larger populations will have larger data points.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+c:
+
+\series default
+ Controls the color of the data points.
+ 
+\family typewriter
+\color black
+c=
+\begin_inset Quotes erd
+\end_inset
+
+median house value
+\begin_inset Quotes erd
+\end_inset
+
+
+\family default
+\color inherit
+ means that the color of each point will represent the values of the 
+\begin_inset Quotes eld
+\end_inset
+
+median_house_value
+\begin_inset Quotes erd
+\end_inset
+
+ column,
+ and it's mapped to a colormap.
+ Districts (data points) with higher median house values will have red colors.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename machine_learning_projects/img/housing_img/median_house_value_vs_long_lat.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\size small
+The housing prices are related to the ocean proximity and population density.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Linear Correlation:
+ Graph x-y of a linear function between 2 Columns
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/ml_project_with_python/linear_correlation.py"
+lstparams "style={python-file},caption={Linear Correlation}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename machine_learning_projects/img/housing_img/Linear_Correlation_median_house_value_vs_median_income.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\size small
+Median House Value versus Median Income with Linear Correlation = + 0.68
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Float figure
+placement H
+alignment document
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename machine_learning_projects/img/housing_img/Linear_Correlation_median_house_value_vs_latitude.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\size small
+Median House Value versus Latitude with Linear Correlation = - 0.14
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The Linear Correlation coefficient ranges from 1 to -1.
+ A coefficient close to 0 signifies little or no linear correlation,
+ but nonlinear relationships between the attributes might still exist.
+\end_layout
+
+\begin_layout Itemize
++0.68:
+ the median house value tends to increase when the median income increases.
+\end_layout
+
+\begin_layout Itemize
+-0.14:
+ the median house value has a slight tendency to decrease when the latitude increases.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Column division
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/ml_project_with_python/column_division.py"
+lstparams "style={python-file},caption={Column Division}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Data Cleaning:
+ Column with missing values
+\end_layout
+
+\begin_layout Standard
+Fill the missing values of the columns with the mean or median of each respective column.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/ml_project_with_python/data_cleaning.py"
+lstparams "style={python-file},caption={Separates the dataset from the column with the labels  and replace the missing values of the columns with the median of each respective column.}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Text Encoding:
+ Column with text values
+\end_layout
+
+\begin_layout Standard
+How to encode the text values of a column into integers or binary vectors.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/ml_project_with_python/text_encoding.py"
+lstparams "style={python-file},caption={Text Encoding: Text, Int, and Binary Vector}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Transformers:
+ Classes with Functions that modify the dataset
+\end_layout
+
+\begin_layout Standard
+They are classes or group of functions created to handle data cleanup operations or to combine columns and create new columns,
+ attributes,
+ or categories to modify the dataset.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/ml_project_with_python/transformer.py"
+lstparams "style={python-file},caption={Custom Classes to modify the dataset.}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Transformation Pipeline
+\end_layout
+
+\begin_layout Itemize
+The Transformation Pipeline only makes modifications on the selected numerical and text columns.
+\end_layout
+
+\begin_layout Itemize
+Warning:
+ Do not feed the Column Label to the Transformation Pipeline (
+\family typewriter
+dataset = module_file_stratification.data_stratified_train.drop(columns=["column_label"])
+\family default
+),
+ otherwise it will memorize the values for the Column of the Predictions and the Root Mean Square Error (RMSE) will be close to 0.
+\end_layout
+
+\begin_layout Itemize
+Warning:
+ Fit the entire dataset (
+\family typewriter
+full_pipeline.fit(housing)
+\family default
+) so the text encoder will read all the possible categorical values of the text column and translate them into all the unique possible binary vectors to smaller dataset portion or sample.
+ You can also create a list with all the possible categorical text values from the text column and pass them as input through the transformation pipeline,
+ and then modify the custom text encoder,
+ the transformer class,
+ so it will take them as a parameter to encode all the text values to integers or binary vectors.
+\end_layout
+
+\begin_layout Itemize
+Fill missing values with the Median of the Column
+\end_layout
+
+\begin_layout Itemize
+Divide Columns to create new ones
+\end_layout
+
+\begin_layout Itemize
+Standardization of Columns (mean = 0,
+ standard deviation = 1)
+\end_layout
+
+\begin_layout Itemize
+Text Binary Encoding of a Column (Text 
+\color black
+
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+
+\color inherit
+ Int 
+\color black
+
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+ 
+\color inherit
+Binary Vector)
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/ml_project_with_python/transformation_pipeline.py"
+lstparams "style={python-file},caption={Transformation Pipeline: Numerical and Text Columns}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Standardization of a Column
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+Column=V_{0},V_{1},V_{2},V_{3},...V_{n}\rightarrow Column'=Z_{0},Z_{1},Z_{2},Z_{3},...Z_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+Z_{i}=\frac{V_{i}-mean(Column)}{Standard\:Deviation(Column)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+Mean(Column')=\frac{1}{n}\sum_{i=1}^{n}(Z_{i})\simeq0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+SD(Column')=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(Z_{i}-mean')^{2}}\simeq1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Train the Machine Learning Model
+\end_layout
+
+\begin_layout Standard
+The LinearRegression(),
+ DecisionTreeRegressor(),
+ and RandomForestRegressor() functions map the transformed columns,
+ the numerical and binary encoded columns output by the transformation pipeline,
+ to the target or label column,
+ the solutions,
+ of the dataset.
+ The regression algorithm calculates a set of weights for each column value,
+ so each transformed column value contributes a certain weight to the value of the column label.
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+L_{i}=C_{1}\cdot W_{1}+C_{2}\cdot W_{2}+C_{3}\cdot W_{3}...+C_{n}\cdot W_{n}+b
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\color black
+\begin_inset Formula $L_{i}$
+\end_inset
+
+:
+ Value of the Column Label of the row i
+\end_layout
+
+\begin_layout Itemize
+
+\color black
+\begin_inset Formula $C_{x}$
+\end_inset
+
+:
+ Value of the Column x of the row i
+\end_layout
+
+\begin_layout Itemize
+
+\color black
+\begin_inset Formula $W_{x}$
+\end_inset
+
+:
+ Weight of the Column x
+\end_layout
+
+\begin_layout Itemize
+
+\color black
+\begin_inset Formula $b$
+\end_inset
+
+:
+ bias
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "machine_learning_projects/housing_project/ml_project_with_python/train-model.py"
+lstparams "style={python-file}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Machine Learning Model = ML Algorithm + Dataset
+\end_layout
+
+\begin_layout Standard
+The ML model is the trained version of a machine learning algorithm applied to a dataset (pre-processed through a transformation pipeline).
+\end_layout
+
+\begin_layout Standard
+The algorithm is the recipe and the dataset are the ingredients.
+ Once you follow the recipe with the ingredients,
+ the result is the trained model.
+\end_layout
+
+\begin_layout Itemize
+Machine Learning Algorithm:
+ A mathematical framework or method (e.g.,
+ Random Forest,
+ Support Vector Machine,
+ etc.) used to learn patterns from data.
+\end_layout
+
+\begin_layout Itemize
+Dataset:
+ The data the algorithm uses to learn patterns,
+ typically transformed into a suitable format (e.g.,
+ scaled,
+ encoded,
+ or otherwise prepared).
+\end_layout
+
+\begin_layout Itemize
+Model:
+ When you train the algorithm on the dataset,
+ it becomes a model—
+a specific instance of the algorithm that has learned from the data.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size larger
+Fine-tuning the model
+\end_layout
+
+\begin_layout Standard
+Fine-tuning adjusts parameters of the ML Algorithm applied to the Dataset to ensure the Model is both accurate and consistent across different datasets.
+\end_layout
+
+\begin_layout Standard
+The goal of fine-tuning is to minimize the standard deviation and to maximize the model's predictive performance on unseen data by carefully choosing hyperparameters.
+ For example,
+ in Random Forest,
+ hyperparameters include the number of trees,
+ maximum tree depth,
+ etc.
+\end_layout
+
+\begin_layout Standard
+Evaluation:
+ The performance is typically evaluated using metrics (e.g.,
+ Mean Absolute Error,
+ Root Mean Square Error (Standard Deviation),
+ etc.) and cross-validation to ensure that the model generalizes well over different subsets.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "1"
+key "Hands-On-Machine-Learning"
+literal "false"
+
+\end_inset
+
+Hands-On Machine Learning with Scikit-Learn,
+ Keras,
+ and TensorFlow 
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "2"
+key "Learning-Deep-Learning"
+literal "false"
+
+\end_inset
+
+Learning Deep Learning:
+ Theory and Practice of Neural Networks,
+ Computer Vision,
+ Natural Language Processing,
+ and Transformers Using Tensorflow
+\end_layout
+
+\end_body
+\end_document
