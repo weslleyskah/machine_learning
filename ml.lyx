@@ -166,70 +166,8 @@ LatexCommand tableofcontents
 Hands on Machine Learning
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter
-Machine Learning project with Python
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Full Code:
- Machine Learning project with Python
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/code/housing_data.py"
-lstparams "style={python-file},caption={Housing Project: Linear Regression of the median house value prices. Computes prediction values for the median house value prices based on the label column.}"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Machine Learning Project:
- Food Dataset from the U.S Department of Agriculture (USDA)
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand lstinputlisting
-filename "C:/Users/Wes/Desktop/machine_learning_projects/food_project/code/food_data.py"
-lstparams "style={python-file},caption={Food Dataset Project from the USDA: Linear Regression on the Protein Column. The code predicts protein values for each food item based on the label column.}"
-literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
+Math
 \end_layout
 
 \begin_layout Section
@@ -492,13 +430,6 @@ Standard Deviation measures the average distance of the differences between the 
  It is the deviation from the mean.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Itemize
 i:
  Instance (Row or Data-points)
@@ -644,6 +575,108 @@ X
 
 \series bold
 \size larger
+Standardization of a Column
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+Column=V_{0},V_{1},V_{2},V_{3},...V_{n}\rightarrow Column'=Z_{0},Z_{1},Z_{2},Z_{3},...Z_{n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+Z_{i}=\frac{V_{i}-mean(Column)}{Standard\:Deviation(Column)}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+Mean(Column')=\frac{1}{n}\sum_{i=1}^{n}(Z_{i})\simeq0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+SD(Column')=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(Z_{i}-mean')^{2}}\simeq1
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Regression
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Full Code:
+ Regression task to predict the label column of the median house prices
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand lstinputlisting
+filename "housing_project/code/housing_data.py"
+lstparams "style={python-file},caption={Housing Project: Linear Regression of the median house value prices. Computes prediction values for the median house value prices based on the label column.}"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
 Workspace
 \end_layout
 
@@ -662,7 +695,7 @@ Python modules:
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/workspace.cmd"
+filename "workspace.cmd"
 lstparams "style={batch-file},caption={Install python modules and creates the virtual environment}"
 literal "false"
 
@@ -690,7 +723,7 @@ Download the Data
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/ml_project_with_python/data_download.py"
+filename "housing_project/ml_project_with_python/data_download.py"
 lstparams "style={python-file},caption={Download and load the dataset.}"
 literal "false"
 
@@ -726,7 +759,7 @@ Histogram:
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/ml_project_with_python/histogram.py"
+filename "housing_project/ml_project_with_python/histogram.py"
 lstparams "style={python-file},caption={Histogram for the full dataset, random dataset and stratified dataset.}"
 literal "false"
 
@@ -738,7 +771,7 @@ literal "false"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename machine_learning_projects/img/housing_img/Histogram_housing.png
+	filename img/housing_img/Histogram_housing.png
 	display false
 	scale 40
 
@@ -750,7 +783,7 @@ literal "false"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename machine_learning_projects/img/housing_img/Histogram_median_house_value.png
+	filename img/housing_img/Histogram_median_house_value.png
 	display false
 	scale 40
 
@@ -762,7 +795,7 @@ literal "false"
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename machine_learning_projects/img/housing_img/Histogram_median_income.png
+	filename img/housing_img/Histogram_median_income.png
 	display false
 	scale 40
 
@@ -859,7 +892,7 @@ Analysis of the Median Income vs Districts and Comparison Table:
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/ml_project_with_python/comparison_table_analysis.py"
+filename "housing_project/ml_project_with_python/comparison_table_analysis.py"
 lstparams "style={python-file},caption={Comparison Table}"
 literal "false"
 
@@ -919,7 +952,7 @@ Stratification of a Dataset
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/ml_project_with_python/stratification.py"
+filename "housing_project/ml_project_with_python/stratification.py"
 lstparams "style={python-file},caption={Data Stratification}"
 literal "false"
 
@@ -1117,7 +1150,7 @@ Data Visualization:
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/ml_project_with_python/data_visualization.py"
+filename "housing_project/ml_project_with_python/data_visualization.py"
 lstparams "style={python-file},caption={Data Visualization}"
 literal "false"
 
@@ -1203,7 +1236,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename machine_learning_projects/img/housing_img/median_house_value_vs_long_lat.png
+	filename img/housing_img/median_house_value_vs_long_lat.png
 	display false
 	scale 40
 
@@ -1251,7 +1284,7 @@ Linear Correlation:
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/ml_project_with_python/linear_correlation.py"
+filename "housing_project/ml_project_with_python/linear_correlation.py"
 lstparams "style={python-file},caption={Linear Correlation}"
 literal "false"
 
@@ -1272,7 +1305,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename machine_learning_projects/img/housing_img/Linear_Correlation_median_house_value_vs_median_income.png
+	filename img/housing_img/Linear_Correlation_median_house_value_vs_median_income.png
 	display false
 	scale 40
 
@@ -1312,7 +1345,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename machine_learning_projects/img/housing_img/Linear_Correlation_median_house_value_vs_latitude.png
+	filename img/housing_img/Linear_Correlation_median_house_value_vs_latitude.png
 	display false
 	scale 40
 
@@ -1374,7 +1407,7 @@ Column division
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/ml_project_with_python/column_division.py"
+filename "housing_project/ml_project_with_python/column_division.py"
 lstparams "style={python-file},caption={Column Division}"
 literal "false"
 
@@ -1407,7 +1440,7 @@ Fill the missing values of the columns with the mean or median of each respectiv
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/ml_project_with_python/data_cleaning.py"
+filename "housing_project/ml_project_with_python/data_cleaning.py"
 lstparams "style={python-file},caption={Separates the dataset from the column with the labels  and replace the missing values of the columns with the median of each respective column.}"
 literal "false"
 
@@ -1440,7 +1473,7 @@ How to encode the text values of a column into integers or binary vectors.
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/ml_project_with_python/text_encoding.py"
+filename "housing_project/ml_project_with_python/text_encoding.py"
 lstparams "style={python-file},caption={Text Encoding: Text, Int, and Binary Vector}"
 literal "false"
 
@@ -1475,7 +1508,7 @@ They are classes or group of functions created to handle data cleanup operations
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/ml_project_with_python/transformer.py"
+filename "housing_project/ml_project_with_python/transformer.py"
 lstparams "style={python-file},caption={Custom Classes to modify the dataset.}"
 literal "false"
 
@@ -1563,77 +1596,9 @@ Binary Vector)
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/ml_project_with_python/transformation_pipeline.py"
+filename "housing_project/ml_project_with_python/transformation_pipeline.py"
 lstparams "style={python-file},caption={Transformation Pipeline: Numerical and Text Columns}"
 literal "false"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\noindent
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-\noindent
-
-\series bold
-\size larger
-Standardization of a Column
-\end_layout
-
-\begin_layout Standard
-
-\color black
-\begin_inset Formula 
-\[
-Column=V_{0},V_{1},V_{2},V_{3},...V_{n}\rightarrow Column'=Z_{0},Z_{1},Z_{2},Z_{3},...Z_{n}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\color black
-\begin_inset Formula 
-\[
-Z_{i}=\frac{V_{i}-mean(Column)}{Standard\:Deviation(Column)}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\color black
-\begin_inset Formula 
-\[
-Mean(Column')=\frac{1}{n}\sum_{i=1}^{n}(Z_{i})\simeq0
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\color black
-\begin_inset Formula 
-\[
-SD(Column')=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(Z_{i}-mean')^{2}}\simeq1
-\]
 
 \end_inset
 
@@ -1723,7 +1688,7 @@ L_{i}=C_{1}\cdot W_{1}+C_{2}\cdot W_{2}+C_{3}\cdot W_{3}...+C_{n}\cdot W_{n}+b
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "machine_learning_projects/housing_project/ml_project_with_python/train-model.py"
+filename "housing_project/ml_project_with_python/train-model.py"
 lstparams "style={python-file}"
 literal "false"
 
@@ -1782,7 +1747,7 @@ Model:
 a specific instance of the algorithm that has learned from the data.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Section
 
 \series bold
 \size larger
@@ -1813,6 +1778,67 @@ Evaluation:
 \begin_layout Standard
 \noindent
 \begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Classification
+\end_layout
+
+\begin_layout Section
+Dataset Information
+\end_layout
+
+\begin_layout Itemize
+70,000 small images of digits handwritten.
+ There are 70,000 images with 28×28 pixels,
+ and each image has 784 columns or features.
+ 
+\end_layout
+
+\begin_layout Itemize
+Each column or feature value represents the pixel’s intensity,
+ from 0 (white) to 255 (black).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename img/classification_img/digit_label.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A digit from the dataset with its corresponding label.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
 \end_inset
 
 

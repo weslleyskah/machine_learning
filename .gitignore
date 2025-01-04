@@ -2,9 +2,9 @@
 ## Virtual Environment
 venv
 ## Datasets:
-machine_learning_projects/datasets
+datasets
 ## Models:
-machine_learning_projects/models
+models
 ## Python
 __pycache__
 
