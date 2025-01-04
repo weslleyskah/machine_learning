@@ -1,0 +1,339 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\begin_preamble
+\date{}
+\author{Weslley Matheus}
+\usepackage{listings,color,xcolor}
+
+\lstdefinestyle{batch-file}{
+    backgroundcolor={\color{gray!10}},
+    frame=single,
+    framerule=1pt,
+    rulecolor={\color{gray!50}},
+    breaklines=true,
+	breakindent=0pt,
+    basicstyle={\fontfamily{pcr}\selectfont\mdseries\footnotesize},
+    commentstyle={\color{green!60!black}},
+    morecomment={[l]{::}}
+}
+
+\lstdefinestyle{python-file}{
+    language=Python,
+    backgroundcolor={\color{gray!10}},
+    frame=single,  
+    framerule=1pt,  
+    rulecolor={\color{gray!50}},  
+    breaklines=true,  
+    breakindent=0pt,  
+    basicstyle={\fontfamily{pcr}\selectfont\mdseries\footnotesize},  % Font
+    commentstyle={\color{green!40!black}},  % Comment
+    keywordstyle={\color{blue!60!white}\bfseries},  % Keyword
+    stringstyle={\color{orange!70!black}\bfseries},  % String
+    identifierstyle=\color{black},  % Variable
+    emph={True, False, None, break, class, continue, def, del, if, pass,
+	open, with, while, assert, return, in, is, not, or, lambda, elif, else},
+    emphstyle={\color{magenta!80!black}\bfseries},  % True, False, None
+	morekeywords={from, import, global}
+}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+eqs-within-sections
+figs-within-sections
+\end_modules
+\maintain_unincluded_children no
+\language american
+\language_package default
+\inputencoding utf8
+\fontencoding auto
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement class
+\float_alignment class
+\paperfontsize default
+\spacing onehalf
+\use_hyperref true
+\pdf_bookmarks true
+\pdf_bookmarksnumbered false
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks false
+\pdf_pdfborder false
+\pdf_colorlinks false
+\pdf_backref false
+\pdf_pdfusetitle true
+\papersize a4
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification false
+\use_refstyle 1
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth -2
+\tocdepth 1
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content true
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+
+\series bold
+\size giant
+\color black
+Machine Learning Theory
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Supervised and Unsupervised Learning
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Supervised Learning
+\end_layout
+
+\begin_layout Standard
+Supervised machine learning,
+ also called predictive analytics,
+ uses algorithms to train a model to find patterns in a dataset with labels and features.
+ It then uses the trained model to predict the labels on a new dataset’s features.
+ Supervised learning can be further categorized into classification and regression.
+ Supervised learning algorithms include:
+ Logistic regression,
+ Linear regression,
+ Support vector machines,
+ Decision trees,
+ Random forest,
+ Gradient boosting decision trees.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename machine_learning_projects/img/ml-theory/supervised_learning/supervised_learning_1.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+\noindent
+
+\series bold
+\size larger
+Classification
+\end_layout
+
+\begin_layout Standard
+Classification identifies which category an item belongs to based on labeled examples of known items.
+ In the simple example below,
+ logistic regression is used to estimate the probability of whether a credit card transaction is fraudulent or not (the label) based on features of transactions (transaction amount,
+ time,
+ and location of last transaction) known to be fraudulent or not.
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename machine_learning_projects/img/ml-theory/supervised_learning/classification_1.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Regression
+\end_layout
+
+\begin_layout Standard
+Regression estimates the relationship between a target outcome label and one or more feature variables to predict a continuous numeric value.
+ In the simple example below linear regression is used to estimate the house price (the label) based on the house size (the feature).
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename machine_learning_projects/img/ml-theory/supervised_learning/regression_1.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Unsupervised learning
+\end_layout
+
+\begin_layout Standard
+Unsupervised learning,
+ also called descriptive analytics,
+ doesn’t have labeled data provided in advance,
+ and can aid data scientists in finding previously unknown patterns in data.
+ These algorithms attempt to ‘learn’ the inherent structure in the input data,
+ discovering similarities,
+ or regularities.
+ Common unsupervised tasks include clustering and association.
+\end_layout
+
+\begin_layout Section
+Clustering
+\end_layout
+
+\begin_layout Standard
+In clustering,
+ an algorithm classifies inputs into categories by analyzing similarities between input examples.
+ An example of clustering is a company that wants to segment its customers in order to better tailor products and offerings.
+ Customers could be grouped on features such as demographics and purchase histories.
+ Clustering with unsupervised learning is often combined with supervised learning in order to get more valuable results.
+ Other clustering examples include:
+ Search results grouping,
+ Grouping similar entities,
+ Text categorization,
+ Anomaly detection (finding what is not similar,
+ meaning the outliers from clusters).
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename machine_learning_projects/img/ml-theory/unsupervised_learning/clustering_1.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Association learning
+\end_layout
+
+\begin_layout Standard
+Association or frequent pattern mining finds frequent co-occurring associations (relationships,
+ dependencies) in large sets of data items.
+ An example of co-occurring associations is products that are often purchased together,
+ such as the famous beer and diaper story.
+ An analysis of behavior of grocery shoppers discovered that men who buy diapers often also buy beer.
+ Unsupervised learning algorithms include:
+ K-means,
+ Latent Dirichlet allocation (LDA),
+ Gaussian Mixture Model (GMM),
+ Alternating least squares (ALS),
+ FP-growth.
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+label "1"
+key "Nvidia"
+literal "false"
+
+\end_inset
+
+Nvidia
+\end_layout
+
+\end_body
+\end_document
