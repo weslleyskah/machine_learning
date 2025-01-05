@@ -641,6 +641,69 @@ SD(Column')=\sqrt{\frac{1}{n}\sum_{i=1}^{n}(Z_{i}-mean')^{2}}\simeq1
 Regression
 \end_layout
 
+\begin_layout Section
+Dataset Information
+\end_layout
+
+\begin_layout Itemize
+20,640 rows (house districts) with 10 columns:
+ longitude,
+ latitude,
+ housing_median_age,total_rooms,
+ total_bedrooms,
+ population,
+ households,
+ median_income,
+ median_house_value,
+ ocean_proximity.
+\end_layout
+
+\begin_layout Itemize
+The transformation pipeline created 2 numerical columns –
+\begin_inset Quotes erd
+\end_inset
+
+rooms_per_household
+\begin_inset Quotes erd
+\end_inset
+
+ and 
+\begin_inset Quotes eld
+\end_inset
+
+population_per_household
+\begin_inset Quotes erd
+\end_inset
+
+–,
+ transformed the numerical columns by doing the imputation of missing values with the column mean and standardization of the columns and encoded the row values of the text column 
+\begin_inset Quotes eld
+\end_inset
+
+ocean_proximity
+\begin_inset Quotes erd
+\end_inset
+
+ into binary vectors.
+\end_layout
+
+\begin_layout Itemize
+The machine learning algorithms created a prediction column based on the label column 
+\begin_inset Quotes eld
+\end_inset
+
+median_house_value
+\begin_inset Quotes erd
+\end_inset
+
+ using a stratified version of the dataset.
+\end_layout
+
+\begin_layout Itemize
+Source:
+ raw.githubusercontent.com/ageron/handson-ml/master/datasets/housing/housing.tgz
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
@@ -1827,7 +1890,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-A digit from the dataset with its corresponding label.
+A digit from the dataset with its corresponding value from the label column.
 \end_layout
 
 \end_inset
