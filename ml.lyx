@@ -719,7 +719,7 @@ Full Code:
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand lstinputlisting
-filename "housing_project/code/housing_data.py"
+filename "housing_project/code/housing_project.py"
 lstparams "style={python-file},caption={Housing Project: Linear Regression of the median house value prices. Computes prediction values for the median house value prices based on the label column.}"
 literal "false"
 
