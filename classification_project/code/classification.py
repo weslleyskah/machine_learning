@@ -14,6 +14,8 @@ import matplotlib.pyplot as plt
 from sklearn.datasets import fetch_openml
 
 # Ml Algorithms
+from sklearn.model_selection import StratifiedKFold
+from sklearn.base import clone
 from sklearn.linear_model import SGDClassifier
 
 
@@ -66,6 +68,34 @@ def dataset_load():
 
 
 
+def cross_val_score(dataset, dataset_label):
+    
+    dataset = dataset.to_numpy()
+    dataset_label = dataset_label.to_numpy()
+
+    sgd_clf = SGDClassifier(random_state=42)
+    skfolds = StratifiedKFold(n_splits=3, shuffle=True)
+    for train_index, test_index in skfolds.split(dataset, dataset_label):
+
+        clone_clf = clone(sgd_clf)
+
+        dataset_folds = dataset[train_index]
+        dataset_label_folds = dataset_label[train_index]
+
+        dataset_test_folds = dataset[test_index]
+        dataset_label_test_folds = dataset_label[test_index]
+
+        clone_clf.fit(dataset_folds, dataset_label_folds)
+
+        predictions = clone_clf.predict(dataset_test_folds)
+        predictions_correct = sum(predictions == dataset_label_test_folds)
+
+        print(predictions_correct / len(predictions))
+
+
+
+
+
 if __name__ == "__main__":
     # Download data
     # dataset_download()
@@ -77,10 +107,17 @@ if __name__ == "__main__":
     dataset_train, dataset_label_train = dataset[:60000], dataset_label[:60000]
     dataset_test, dataset_label_test = dataset[60000:], dataset_label[60000:]
 
-    # Shuffle / Randomize the dataset
-    shuffle_index = np.random.permutation(len(dataset_train))
-    dataset_train = dataset_train.iloc[shuffle_index].reset_index(drop=True)
-    dataset_label_train = dataset_label_train.iloc[shuffle_index].reset_index(drop=True)
+    # Shuffle / Randomize the dataset | 
+    # random_indices = [ ? ?? ??? ... ? = [0-59999] x60000 ] 
+    # dataset_train = [ dataset_train[?] dataset_train[??] ... ]
+    random_indices = np.random.permutation(len(dataset_train))
+    dataset_train = dataset_train.iloc[random_indices].reset_index(drop=True)
+    dataset_label_train = dataset_label_train.iloc[random_indices].reset_index(drop=True)
+
+
+
+
+    # Binary Classification: Test a ML Model on an image
 
     # Binary Classifier: Digit 5 = True, other digits = False
     dataset_label_train_5 = (dataset_label_train == 5)
@@ -105,3 +142,9 @@ if __name__ == "__main__":
     plt.imshow(digit_random_image, cmap=plt.cm.binary, interpolation="nearest")
     plt.title(f"Label: {dataset_label_train.iloc[36000]}")
     plt.show()
+
+
+
+
+    # Performance Measure using Cross Validation
+    cross_val_score(dataset_train, dataset_label_train_5)
