@@ -69,15 +69,58 @@ def dataset_load():
 
 
 def cross_val_score(dataset, dataset_label):
+
+    """
+    Perform stratified cross-validation on a given dataset and compute accuracy for each fold.
+
+    Parameters
+    ----------
+    dataset : pd.DataFrame or np.ndarray
+        The input dataset containing the features. Can be a pandas DataFrame or a NumPy array. 
+        If it is a DataFrame, it will be converted to a NumPy array.
     
-    dataset = dataset.to_numpy()
-    dataset_label = dataset_label.to_numpy()
+    dataset_label : pd.DataFrame or np.ndarray
+        The labels corresponding to the dataset. Can be a pandas DataFrame or a NumPy array.
+        If it is a DataFrame, it will be converted to a NumPy array and flattened.
+
+    Returns
+    -------
+    scores : list of float
+        A list of accuracy scores, one for each fold of the stratified cross-validation.
+
+    Description
+    -----------
+    This function performs a 3-fold stratified cross-validation to evaluate the performance of
+    a Stochastic Gradient Descent (SGD) classifier on the provided dataset. The process involves:
+    1. Splitting the dataset into 3 stratified folds.
+    2. For each fold:
+        - Training the classifier on the training set.
+        - Predicting the labels for the test set.
+        - Calculating the accuracy (proportion of correct predictions) on the test set.
+    3. Appending the accuracy score for each fold to a list.
+    4. Returning the list of accuracy scores.
+
+    Notes
+    -----
+    - This implementation uses `StratifiedKFold` to ensure class distribution is preserved across folds.
+    - Accuracy is calculated for each fold and returned as a list of scores.
+    """
+    
+    if (isinstance(dataset, pd.DataFrame) and isinstance(dataset_label, pd.DataFrame)):
+        dataset = dataset.to_numpy()
+        dataset_label = dataset_label.to_numpy().ravel()
+
+    # Ensure inputs are NumPy arrays
+    dataset = np.asarray(dataset)
+    dataset_label = np.asarray(dataset_label).ravel()
 
     sgd_clf = SGDClassifier(random_state=42)
     skfolds = StratifiedKFold(n_splits=3, shuffle=True)
     
+    # List to store accuracy for each fold
+    scores = [] 
+    
     for train_index, test_index in skfolds.split(dataset, dataset_label):
-
         dataset_folds = dataset[train_index]
         dataset_label_folds = dataset_label[train_index]
 
@@ -85,23 +128,18 @@ def cross_val_score(dataset, dataset_label):
         dataset_label_test_folds = dataset_label[test_index]
 
         clone_clf = clone(sgd_clf)
-        clone_clf.fit(dataset_folds, dataset_label_folds.ravel())
+        clone_clf.fit(dataset_folds, dataset_label_folds)
         predictions = clone_clf.predict(dataset_test_folds)
-        predictions_correct = sum(predictions == dataset_label_test_folds)
+        accuracy = np.mean(predictions == dataset_label_test_folds)
+        scores.append(accuracy)
 
-        print(predictions_correct / len(predictions))
+    return scores, sum(scores) / len(scores)
 
 
 
 
 
 if __name__ == "__main__":
-
-    """
-        Algorithm.fit(dataset, dataset_label)
-        Dataframes: dataset.to_numpy() dataset_label.to_numpy().ravel()
-        Arrays: dataset_label.ravel()
-    """
 
     # Download data
     # dataset_download()
@@ -133,6 +171,11 @@ if __name__ == "__main__":
     digit_random = dataset_train.iloc[36000].to_numpy()
     
     # Stochastic Gradient Descent Classifier
+    """
+        Algorithm.fit(dataset, dataset_label)
+        Dataframes: dataset.to_numpy() dataset_label.to_numpy().ravel()
+        Arrays: dataset_label.ravel()
+    """
     sgd_clf = SGDClassifier(random_state=42)
     sgd_clf.fit(dataset_train.to_numpy(), dataset_label_train_5.to_numpy().ravel())
     # Prediction
@@ -152,4 +195,7 @@ if __name__ == "__main__":
 
 
     # Performance Measure using Cross Validation
-    cross_val_score(dataset_train, dataset_label_train_5)
+    scores, average_scores = cross_val_score(dataset_train, dataset_label_train_5)
+    for score in scores: 
+        print(score)
+    print(average_scores)
