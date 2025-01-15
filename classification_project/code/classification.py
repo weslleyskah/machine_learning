@@ -10,14 +10,13 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Datasets
+# SKLearn: Datasets, ML Algorithms 
 from sklearn.datasets import fetch_openml
-
-# Ml Algorithms
 from sklearn.model_selection import StratifiedKFold
 from sklearn.base import clone
 from sklearn.linear_model import SGDClassifier
-
+from sklearn.model_selection import cross_val_predict
+from sklearn.metrics import confusion_matrix
 
 
 
@@ -114,7 +113,7 @@ def cross_val_score(dataset, dataset_label):
     dataset = np.asarray(dataset)
     dataset_label = np.asarray(dataset_label).ravel()
 
-    sgd_clf = SGDClassifier(random_state=42)
+    binary_classifier = SGDClassifier(random_state=42)
     skfolds = StratifiedKFold(n_splits=3, shuffle=True)
     
     # List to store accuracy for each fold
@@ -127,7 +126,7 @@ def cross_val_score(dataset, dataset_label):
         dataset_test_folds = dataset[test_index]
         dataset_label_test_folds = dataset_label[test_index]
 
-        clone_clf = clone(sgd_clf)
+        clone_clf = clone(binary_classifier)
         clone_clf.fit(dataset_folds, dataset_label_folds)
         predictions = clone_clf.predict(dataset_test_folds)
         accuracy = np.mean(predictions == dataset_label_test_folds)
@@ -176,13 +175,13 @@ if __name__ == "__main__":
         Dataframes: dataset.to_numpy() dataset_label.to_numpy().ravel()
         Arrays: dataset_label.ravel()
     """
-    sgd_clf = SGDClassifier(random_state=42)
-    sgd_clf.fit(dataset_train.to_numpy(), dataset_label_train_5.to_numpy().ravel())
+    binary_classifier = SGDClassifier(random_state=42)
+    binary_classifier.fit(dataset_train.to_numpy(), dataset_label_train_5.to_numpy().ravel())
     # Prediction
-    prediction = sgd_clf.predict([digit_random])
+    prediction = binary_classifier.predict([digit_random])
     print("Prediction (True if 5, else False):", prediction[0])
     # Evaluation
-    accuracy = sgd_clf.score(dataset_test.to_numpy(), dataset_label_test_5)
+    accuracy = binary_classifier.score(dataset_test.to_numpy(), dataset_label_test_5)
     print(f"Test Accuracy: {accuracy}")
 
     # Show the random digit
@@ -199,3 +198,18 @@ if __name__ == "__main__":
     for score in scores: 
         print(score)
     print(average_scores)
+
+
+
+
+    # Confusion Matrix
+    """
+    Performs K-fold cross validation and returns the predictions made on each fold or subset.
+    """
+    dataset_label_train_predictions = cross_val_predict(binary_classifier, dataset_train.to_numpy(), dataset_label_train_5.to_numpy().ravel(), cv=3)
+    print(confusion_matrix(dataset_label_train_5, dataset_label_train_predictions))
+    #                                         column 1: predicted class (non-5)           column 2: predicted class (5)
+    # row 1 (negative class: non-5 images): [ correctly classified as non-5s              wrongly classified as 5s  ]       
+    # row 2 (positive class: 5     images): [ wrongly classified as non-5s                correctly classified as 5s]     
+    #
+    # row 2 (real 5) x column 1 (predicted non-5): how many real 5s were classified as non-5s
