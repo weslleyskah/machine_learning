@@ -449,7 +449,27 @@ Precision
 \color black
 \begin_inset Formula 
 \[
-P=\frac{True\,Positives}{Tru\,Positives+False\,Positrives}
+P=\frac{True\,Positives}{True\,Positives+False\,Positrives}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size larger
+Recall
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+P=\frac{True\,Positives}{True\,Positives+False\,Negatives}
 \]
 
 \end_inset
