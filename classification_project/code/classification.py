@@ -12,11 +12,12 @@ import matplotlib.pyplot as plt
 
 # SKLearn: Datasets, ML Algorithms 
 from sklearn.datasets import fetch_openml
-from sklearn.model_selection import StratifiedKFold
+from sklearn.model_selection import StratifiedKFold, cross_val_predict
 from sklearn.base import clone
 from sklearn.linear_model import SGDClassifier
-from sklearn.model_selection import cross_val_predict
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import confusion_matrix, precision_score, recall_score
+
+
 
 
 
@@ -37,6 +38,7 @@ CLASSIFICATION_IMAGES_DIR = os.path.join(IMAGES_DIR, "classification_img")
 directories = [DATA_PATH, CLASSIFICATION_DATA_PATH, MODEL_DIR, CLASSIFICATION_MODEL_DIR, IMAGES_DIR, CLASSIFICATION_IMAGES_DIR]
 for dir in directories:
     os.makedirs(dir, exist_ok=True)
+
 
 
 
@@ -63,6 +65,7 @@ def dataset_load():
     dataset_label_df = pd.read_csv(dataset_label_csv)
 
     return dataset_data_df, dataset_label_df 
+
 
 
 
@@ -146,9 +149,17 @@ if __name__ == "__main__":
     # Load data
     dataset, dataset_label = dataset_load()
 
+
+
+
+
     # Split into training and test subsets
     dataset_train, dataset_label_train = dataset[:60000], dataset_label[:60000]
     dataset_test, dataset_label_test = dataset[60000:], dataset_label[60000:]
+
+
+
+
 
     # Shuffle / Randomize the dataset
     # random_indices = [ ? ?? ??? ... ? = [0-59999] x60000 ] 
@@ -160,14 +171,25 @@ if __name__ == "__main__":
 
 
 
-    # Binary Classification: Test a ML Model on an image
 
-    # Binary Classifier: Digit 5 = True, other digits = False
+    # Random digit
+    digit_random = dataset_train.iloc[36000].to_numpy()
+    
+    # Show the random digit
+    digit_random_image = digit_random.reshape(28, 28)
+    plt.imshow(digit_random_image, cmap=plt.cm.binary, interpolation="nearest")
+    plt.title(f"Label: {dataset_label_train.iloc[36000]}")
+    plt.show()
+
+
+
+
+
+    # Binary Classification
+
+    # Binary Classifier: digit image 5 = True, other digit images = False
     dataset_label_train_5 = (dataset_label_train == 5)
     dataset_label_test_5 = (dataset_label_test == 5)
-
-    # Test the model with a random digit
-    digit_random = dataset_train.iloc[36000].to_numpy()
     
     # Stochastic Gradient Descent Classifier
     """
@@ -184,11 +206,6 @@ if __name__ == "__main__":
     accuracy = binary_classifier.score(dataset_test.to_numpy(), dataset_label_test_5)
     print(f"Test Accuracy: {accuracy}")
 
-    # Show the random digit
-    digit_random_image = digit_random.reshape(28, 28)
-    plt.imshow(digit_random_image, cmap=plt.cm.binary, interpolation="nearest")
-    plt.title(f"Label: {dataset_label_train.iloc[36000]}")
-    plt.show()
 
 
 
@@ -202,14 +219,24 @@ if __name__ == "__main__":
 
 
 
-    # Confusion Matrix
+
+    # K-fold Valuation and Confusion Matrix
     """
     Performs K-fold cross validation and returns the predictions made on each fold or subset.
+
+    Confusion Matreix:
+
+                                            column 1: predicted class (non-5)           column 2: predicted class (5)
+    row 1 (negative class: non-5 images): [ correctly classified as non-5s              wrongly classified as 5s  ]       
+    row 2 (positive class: 5     images): [ wrongly classified as non-5s                correctly classified as 5s]     
+    
+    row 2 (real 5) x column 1 (predicted non-5): how many real 5s were classified as non-5s
+    Precision = True Positive / (True Positive + False Positive)
+    Recall = True Positive / (True Positive + False Negative)
     """
+
     dataset_label_train_predictions = cross_val_predict(binary_classifier, dataset_train.to_numpy(), dataset_label_train_5.to_numpy().ravel(), cv=3)
     print(confusion_matrix(dataset_label_train_5, dataset_label_train_predictions))
-    #                                         column 1: predicted class (non-5)           column 2: predicted class (5)
-    # row 1 (negative class: non-5 images): [ correctly classified as non-5s              wrongly classified as 5s  ]       
-    # row 2 (positive class: 5     images): [ wrongly classified as non-5s                correctly classified as 5s]     
-    #
-    # row 2 (real 5) x column 1 (predicted non-5): how many real 5s were classified as non-5s
+    print(precision_score(dataset_label_train_5, dataset_label_train_predictions))
+    print(recall_score(dataset_label_train_5, dataset_label_train_predictions))
+

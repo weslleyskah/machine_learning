@@ -77,7 +77,7 @@
 \dynamic_quotes 0
 \papercolumns 1
 \papersides 1
-\paperpagestyle default
+\paperpagestyle plain
 \tablestyle default
 \tracking_changes false
 \output_changes false
@@ -159,6 +159,62 @@ A digit from the dataset with its corresponding value from the label column.
 
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Confusion Matrix
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename C:/Users/Wes/Desktop/machine_learning/img/classification_img/confusion_matrix.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size larger
+Precision
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+P=\frac{True\,Positives}{True\,Positives+False\,Positrives}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size larger
+Recall
+\end_layout
+
+\begin_layout Standard
+
+\color black
+\begin_inset Formula 
+\[
+R=\frac{True\,Positives}{True\,Positives+False\,Negatives}
+\]
 
 \end_inset
 

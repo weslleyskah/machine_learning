@@ -469,7 +469,7 @@ Recall
 \color black
 \begin_inset Formula 
 \[
-P=\frac{True\,Positives}{True\,Positives+False\,Negatives}
+R=\frac{True\,Positives}{True\,Positives+False\,Negatives}
 \]
 
 \end_inset
