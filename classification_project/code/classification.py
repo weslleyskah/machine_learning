@@ -140,6 +140,35 @@ def cross_val_score(dataset, dataset_label):
 
 
 
+def k_fold_confusion_matrix(dataset_train, dataset_label_train, binary_classifier):
+    """
+    Performs K-fold cross-validation and prints the confusion matrix, precision, and recall.
+
+    Confusion Matrix:
+
+                                            column 1: predicted class (non-5)           column 2: predicted class (5)
+    row 1 (negative class: non-5 images): [ correctly classified as non-5s              wrongly classified as 5s  ]       
+    row 2 (positive class: 5     images): [ wrongly classified as non-5s                correctly classified as 5s]     
+
+    Precision = True Positive / (True Positive + False Positive)
+    Recall = True Positive / (True Positive + False Negative)
+    """
+
+    # Perform K-fold cross-validation predictions
+    dataset_label_train_predictions = cross_val_predict(
+        binary_classifier, dataset_train, dataset_label_train, cv=3
+    )
+
+    # confusion matrix, precision, and recall
+    conf_matrix = confusion_matrix(dataset_label_train, dataset_label_train_predictions)
+    precision = precision_score(dataset_label_train, dataset_label_train_predictions)
+    recall = recall_score(dataset_label_train, dataset_label_train_predictions)
+
+    return conf_matrix, precision, recall
+
+
+
+
 
 if __name__ == "__main__":
 
@@ -221,22 +250,11 @@ if __name__ == "__main__":
 
 
     # K-fold Valuation and Confusion Matrix
-    """
-    Performs K-fold cross validation and returns the predictions made on each fold or subset.
-
-    Confusion Matreix:
-
-                                            column 1: predicted class (non-5)           column 2: predicted class (5)
-    row 1 (negative class: non-5 images): [ correctly classified as non-5s              wrongly classified as 5s  ]       
-    row 2 (positive class: 5     images): [ wrongly classified as non-5s                correctly classified as 5s]     
-    
-    row 2 (real 5) x column 1 (predicted non-5): how many real 5s were classified as non-5s
-    Precision = True Positive / (True Positive + False Positive)
-    Recall = True Positive / (True Positive + False Negative)
-    """
-
-    dataset_label_train_predictions = cross_val_predict(binary_classifier, dataset_train.to_numpy(), dataset_label_train_5.to_numpy().ravel(), cv=3)
-    print(confusion_matrix(dataset_label_train_5, dataset_label_train_predictions))
-    print(precision_score(dataset_label_train_5, dataset_label_train_predictions))
-    print(recall_score(dataset_label_train_5, dataset_label_train_predictions))
+    conf_matrix, precision, recall = k_fold_confusion_matrix(dataset_train.to_numpy(), dataset_label_train_5.to_numpy().ravel(), binary_classifier)
+    print("\nConfusion Matrix:")
+    print(conf_matrix)
+    print("\nPrecision Score (percentage of correct predictions):")
+    print(precision)
+    print("\nRecall Score (percentage of the detection of the positive class):")
+    print(recall)
 
