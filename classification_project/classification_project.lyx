@@ -139,7 +139,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename C:/Users/Wes/Desktop/machine_learning/img/classification_img/digit_label.png
+	filename /home/weslleyskah/Desktop/machine_learning/img/classification_img/digit_label.png
 	display false
 	scale 40
 
@@ -172,7 +172,7 @@ Confusion Matrix
 \begin_layout Standard
 \align center
 \begin_inset Graphics
-	filename C:/Users/Wes/Desktop/machine_learning/img/classification_img/confusion_matrix.png
+	filename /home/weslleyskah/Desktop/machine_learning/img/classification_img/confusion_matrix.png
 	display false
 	scale 40
 
@@ -219,6 +219,30 @@ R=\frac{True\,Positives}{True\,Positives+False\,Negatives}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\size larger
+Precision / Recall Tradeoff
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename /home/weslleyskah/Desktop/machine_learning/img/classification_img/decision_thresholds_precision_recall_tradeoffs.png
+	display false
+	scale 40
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Increasing the threshold will increase precision and reduce recall,
+ and vice versa.
 \end_layout
 
 \end_body

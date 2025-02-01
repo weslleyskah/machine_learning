@@ -16,7 +16,7 @@ from sklearn.datasets import fetch_openml
 from sklearn.model_selection import StratifiedKFold, cross_val_predict
 from sklearn.base import clone
 from sklearn.linear_model import SGDClassifier
-from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, precision_recall_curve
 
 
 
@@ -55,7 +55,7 @@ def dataset_download():
     dataset_data.to_csv(os.path.join(CLASSIFICATION_DATA_PATH, "mnist_data.csv"), index=False)
     dataset_label.to_csv(os.path.join(CLASSIFICATION_DATA_PATH, "mnist_label.csv"), index=False)
 
-    print(f"Dataset downloaded and saved as CSV files inside {CLASSIFICATION_DATA_PATH}.")
+    print(f"Dataset downloaded and saved as CSV files on {CLASSIFICATION_DATA_PATH}.")
 
 def dataset_load():
 
@@ -172,7 +172,8 @@ def k_fold_confusion_matrix(dataset_train, dataset_label_train, classifier, pred
     Recall (float): The ratio of true positive predictions to the total number of actual positives.
                     It indicates the ability of the classifier to find all positive samples.
     F1 Score (float): The harmonic mean of precision and recall, providing a single metric that balances both concerns.
-                      It is useful when you need a balance between precision and recall.
+                    Whereas the regular mean treats all values equally, the harmonic mean gives much more weight to low values.
+                    As a result, the classifier will only get a high F1 score if both recall and precision are high.
     """
     skfolds = StratifiedKFold(n_splits=3, shuffle=True, random_state=42)
     dataset_predictions = cross_val_predict(classifier, dataset_train, dataset_label_train, cv=skfolds)
@@ -183,6 +184,43 @@ def k_fold_confusion_matrix(dataset_train, dataset_label_train, classifier, pred
     harmonic_mean_precision_recall = f1_score(dataset_label_train, dataset_predictions)
     
     return conf_matrix, precision, recall, harmonic_mean_precision_recall
+
+
+
+
+def decision_scores(sgd_clf, X_train, y_train_5):
+    """
+    Get the decision scores for each threshold of the dataset.
+    A decision score is a value that represents the classifier's confidence in its prediction.
+    As the threshold increases, the recall decreases and the precision increases.
+    Parameters:
+    sgd_clf (sklearn.linear_model.SGDClassifier): The classifier used to predict the scores.
+    X_train (numpy.ndarray): The training dataset.
+    y_train_5 (numpy.ndarray): The labels for the training dataset.
+    """
+    y_scores = cross_val_predict(sgd_clf, X_train, y_train_5, cv=3, method="decision_function")
+    precisions, recalls, thresholds = precision_recall_curve(y_train_5, y_scores)
+    return precisions, recalls, thresholds
+
+
+def plot_precision_recall_vs_threshold(precisions, recalls, thresholds):
+    """
+    Plots precision and recall as a function of the decision threshold.
+    
+    Parameters:
+    precisions (numpy.ndarray): Array of precision values.
+    recalls (numpy.ndarray): Array of recall values.
+    thresholds (numpy.ndarray): Array of threshold values.
+    """
+    plt.figure(figsize=(8, 6))
+    plt.plot(thresholds, precisions[:-1], "b--", label="Precision")
+    plt.plot(thresholds, recalls[:-1], "g-", label="Recall")
+    plt.xlabel("Threshold")
+    plt.ylabel("Precision/Recall")
+    plt.legend(loc="best")
+    plt.title("Precision and Recall vs. Threshold")
+    plt.grid(True)
+    plt.savefig(os.path.join(CLASSIFICATION_IMAGES_DIR, "precision_recall_vs_threshold.png"))
 
 
 
@@ -223,7 +261,7 @@ if __name__ == "__main__":
     plt.imshow(digit_random_image, cmap=plt.cm.binary, interpolation="nearest")
     plt.title(f"Label: {dataset_label_train.iloc[1]}")
     plt.savefig(os.path.join(CLASSIFICATION_IMAGES_DIR, "random_digit.png"))
-    print(f"Rnadom digit figure save on {CLASSIFICATION_IMAGES_DIR}.")
+    print(f"\nRandom digit figure save on {CLASSIFICATION_IMAGES_DIR}.")
 
 
 
@@ -245,7 +283,8 @@ if __name__ == "__main__":
     binary_classifier.fit(dataset_train.to_numpy(), dataset_label_train_5.to_numpy().ravel())
     # Prediction
     prediction = binary_classifier.predict([digit_random])
-    print("Prediction (True if 5, else False):", prediction[0], dataset_label_train.iloc[1])
+    print("Prediction (True if 5, else False):", prediction[0])
+    print(dataset_label_train.iloc[1])
     # Evaluation
     accuracy = binary_classifier.score(dataset_test.to_numpy(), dataset_label_test_5)
     print(f"Test Accuracy: {accuracy}")
@@ -255,8 +294,8 @@ if __name__ == "__main__":
 
 
     # Performance Measure using Cross Validation
-    print("""The cross_val_score function performs cross-validation by splitting the dataset into subsets (folds) to evaluate the performance of the classifier.
-    Scores of the cross validation:""")
+    print("\nThe cross_val_score function performs cross-validation by splitting the dataset into subsets (folds) to evaluate the performance of the classifier.")
+    print("Scores of the cross validation:")
     scores, average_scores = cross_val_score(dataset_train, dataset_label_train_5)
     for score in scores: 
         print(score, end=", ")
@@ -279,3 +318,10 @@ if __name__ == "__main__":
     print("\nHarmonic mean of the prediction and recall scores:")
     print(harmonic_mean_precision_recall)
 
+
+
+
+
+    # Precision-Recall Curve
+    precisions, recalls, thresholds = decision_scores(binary_classifier, dataset_train.to_numpy(), dataset_label_train_5.to_numpy().ravel())
+    plot_precision_recall_vs_threshold(precisions, recalls, thresholds)
